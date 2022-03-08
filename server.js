@@ -4,6 +4,7 @@ const app = express()
 //const fruits = require('./models/fruits.js')
 const mongoose = require('mongoose')
 const Fruit = require('./models/fruits.js')
+const PORT=process.env.PORT || 3000
 
 
 //MUST BE FIRST 
@@ -69,8 +70,8 @@ app.post('/fruits/', (req, res)=>{
       res.redirect('/fruits')
     })
     
-    console.log(fruits)
-    console.log(req.body)
+    // console.log(fruits)
+    // console.log(req.body)
   
     // res.redirect('/fruits') //send the user back to /fruits
   })
@@ -94,6 +95,6 @@ mongoose.connection.once('open', ()=> {
 })
 
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("listening")
 })
